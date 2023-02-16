@@ -44,16 +44,17 @@ def sort_dictionary(dictionary):
         dictionary.items(), key=lambda x: x[1], reverse=True)
     return sorted_word_count_by_frequency
 
-# [('we', 7), ('each', 5), ('or', 5), ('need', 5)]
 
-
-# def formatted_results(list):
-#     format = []
-#     for spot in list:
-#         line_up = spot[0] + " | " + spot[1]
-#         format.append(line_up)
-#     print(format)
-#     return format
+def formatted_results(list):
+    formatted = []
+    max_len = max(len(spot[0]) for spot in list)
+    for spot in list:
+        stars = '*' * spot[1]
+        col1 = spot[0].rjust(max_len)
+        col2 = str(spot[1]).rjust(2)
+        line_up = f"{col1} | {col2} {stars}"
+        formatted.append(line_up)
+    return formatted
 
 
 def print_word_freq(file):
@@ -67,7 +68,10 @@ def print_word_freq(file):
         else:
             word_count[word] = 1
     sorted_word_count = sort_dictionary(word_count)
-    print(sorted_word_count)
+    # print(sorted_word_count)
+    format = formatted_results(sorted_word_count)
+    for line in format:
+        print(line)
     return sorted_word_count
     # loop through the list of words, and updated the dictionary to indicate how many of each we have
 

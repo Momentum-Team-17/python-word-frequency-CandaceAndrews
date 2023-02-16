@@ -44,8 +44,16 @@ def sort_dictionary(dictionary):
         dictionary.items(), key=lambda x: x[1], reverse=True)
     return sorted_word_count_by_frequency
 
+# [('we', 7), ('each', 5), ('or', 5), ('need', 5)]
 
-def formated_results()
+
+# def formatted_results(list):
+#     format = []
+#     for spot in list:
+#         line_up = spot[0] + " | " + spot[1]
+#         format.append(line_up)
+#     print(format)
+#     return format
 
 
 def print_word_freq(file):
